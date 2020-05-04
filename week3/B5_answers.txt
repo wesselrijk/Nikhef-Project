@@ -1,0 +1,22 @@
+###
+
+measure momentum of particles
+calorimeter for energy of electrons and photons
+calorimeter for hadrons
+time of flights hodoscopes?
+tof + momentum ---gives--> particle mass
+
+in tree: for every entry there is a seperate event
+with a given energy
+respond to various detectors
+now have full correlation -> start looking at hodoscope one, how does it correlate
+with EM calorimeter
+
+store corelation between data sets/histograms and such
+
+page3 simple jupyter notebook, uses pyroot, accesses information in the tree
+
+change axis: use th2f object
+matplotlib and root stuff don't interact!
+matplotlib line in jupyter notebook is to let the notebook know there will be
+drawn graphs

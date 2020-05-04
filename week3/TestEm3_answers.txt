@@ -1,0 +1,27 @@
+### What is the geometry of TestEm3 that is setup? ###
+
+The calorimeter, which is the setup of TestEm3, consists of a number of layers. Each layer is equiped with an absorber, with a maximum of 9. Then the README says the layer is "replicated"? I would assume this means that if you define your configuration for one layer and then the number of layers you would like in your calorimeter it will replicate the same layer, therefore each layer is a "replica".
+
+Then there is a list of parameters that are used to define a calorimeter (copied):
+    - the number of layers,
+    - the number of absorbers within a layer,		
+    - the material of the absorbers,
+    - the thickness of the absorbers,
+    - the transverse size of the calorimeter (the input face is a square).
+    
+A transverse uniform magnetic field can be applied to the calorimeter.
+
+There are two important classes that are important: the DetectorConstruction class is used to construct the default geometry and the DetectorMessenger class is used to modifie the aforementioned parameters interactively.
+
+### What are the blue lines in the output of emtutor.mac? Why are they different? ###
+
+The blue lines in the output are the reconstructed paths of the particles, along a longitudal view of the calorimeter, that have interacted with the absorbers. A number of particles and their interactions have been simulated (the simulation has ran numerous times), each having a different energy for the Aluminium, the different lines signify the many different paths created by these particles.
+
+### Estimate energy for stopping protons and mu-? ###
+Through some trials I found that setting gun/energy 184 MeV will make the protons stop right before they leave the setup. It seems that for mu- this happens at about 64 MeV. However, I am not quite sure if this is the energy required to stop the particle.
+
+### Can you change the dimensions of the calorimeter? What happens? ###
+Yes, with the command /globalField/setValue 10 10 100 tesla you set the 3 dimensions of the calorimeter. I am not sure what the first number does, but the second is the angle of incidence and the third is the size of the detection area/volume. The first number can sort of increase the path length but also the shape of the path if it is cranked up to a few hundred.
+
+
+

@@ -1,0 +1,77 @@
+# Introduction presentation slide 22:
+How did we record the information to make the pictures ?
+Information is contained in the 'step' as delta information of a particle. This
+information can be taken through 'hooks' which a user need to apply themselves.
+Then the information can be used to make pictures. But this is inconvenient?
+The Auxiliary part of the essential elements of Geant4 contains visualisation
+and recordings of user requested information.
+There's also the Trajectory and TrajectoryPoint, which contain information
+about the path (well... trajectory) of the particle.
+However, Geant4 does the physics 'silently' meaning that you need to ask
+for the relevant information. The three ways are explained in the presentation,
+I'm not going to copy them here. 
+
+How did we create the initial tracks ?
+An event occurs and creates a number of tracks. The initial track is created att
+the beginning of an event from which other tracks are spawned. It is mandatory
+to generate a primary event through the G4VUserPrimaryGeneratorAction which
+spawns the initial tracks.
+
+What types of particles can be simulated by Geant4 ?
+Geant4 can simulate these partiles:
+https://www.star.bnl.gov/public/comp/simu/newsite/gstar/Manual/particle_id.html
+which are leptons, baryons, mesons and therefore hadrons and fermions.
+
+How did we create the geometry we saw ?
+Not sure? There was a part about how random points are distributed on a
+sphere. 
+
+### Week4 Assignment ###
+# 3. Are you missing something in the main() listing given the above
+presentations?
+In the main() the "mandatory" user initialization classes are missing.
+
+# 4. What is the distinction between Physical and Logical Volumes? 
+You create a physical volume starting with your logical volume. A physical
+volume is simply a placed instance of the logical volume. This instance must be
+placed inside a mother logical volume. 
+
+One logical volume multiple physical volumes
+
+# 4. how is the detector defined?
+The detector is defined as a new instance of a YourDetectorConstruction class
+which is defined in YourDetectorConstruction.cc and YourDetectorConstruction.hh
+# 4. What do you get when you try to do ‘/run/beamOn 1’? Why?
+We get an error saying that "G4VUserPrimaryGeneratorAction is not defined!".
+Since this is not defined, no events can be created.
+
+# 5. Inspect the four new files. What do you notice?
+I notice for each class there is a header file ".hh" and a c++ file ".cc" in
+'/include' and '/src' respectively. The new files are to represent the
+YourPrimaryGeneratorAction and the YourActionInitialization classes. Both
+classes are of the mandatory classes for a Geant4 setup.
+# 5. Compare ProgC/ourmain.cc with ProgB/ourmain.cc what lines do you need to
+add to properly register YourActionInitialization ?
+The part under "Create your action initialization and register in the
+Run-Manager" is not included in the ourmain.cc of ProgB. However, the 
+YourPrimaryGeneratorAction has not been used in the ourmain.cc of ProgC either.
+# 5. Change the particle to a proton and run an event-what is the outcome?
+The geantino is the default particle. This will be set to proton with
+"/gun/particle proton".
+First of all, the proton trajectory is in blue. The proton's path is pretty
+straight with only a slight bend. Only rarely does the proton change direction
+when it reaches the center of the sphere.
+# 5. Change the particle to a positron and run an event-what is the outcome?
+ The electron seems to have a less stable path of flight and its path bends
+a lot more. Reaching the center of the sphere almost always results in a sharp
+angle in its path. The electron's path is displayed in red.
+A positron acts a bit differently, upon reaching the center of the sphere
+it usually turns right back around ("makes an 180 degree angle"). 
+
+Both proton and positron are displayed in blue and the electron is displayed in
+red. This implies that blue corresponds to a positively charged particle and
+red to a negatively charged particle. From the proton and positron a particle
+can spawn with a green path. For the positron, very rarely a particle spawns
+with a red path. Is green a neutrally charged particle?
+
+

@@ -1,0 +1,46 @@
+### What are the decay levels & decay energies? What is the half-life? ###
+
+For Co60 three decay cahins are available.
+For Co60 to Co60, there are two decay levels shown: 58.6 MeV and 0.0 eV. The
+decay time from level 58.6 MeV to 0.0 eV is 5.2712 years. The half-life time
+(I would assume) is 10.467 M (mega seconds?).
+
+For dataset 3 where Co60 decays to Ni60, there are more decay levels. The most
+intense decays are for the XR kbeta3 processes with the two lines of
+1173.228 (3) & 1332.492 (4) keV being the most intense. Here the decay time
+is 1925.28 days, which is about 5.3 years.
+
+
+### Can you find back the gamma rays from what you found in the
+leveldescription? In particularthe lines below < 1 MeV? ###
+
+The result of the histogram when executing: f.FindObjectAny("3")->Draw(); 
+shows that there are about 200k entries with a mean energy of 1253 keV and a
+standard deviation of 79.85 keV for gamma rays. Most notably, there are
+only two regions containing the data. One around 1173 keV and the other around
+1332 keV. 
+
+When looking at the description from 
+https://www.nndc.bnl.gov/nudat2/dec_searchi.jsp we find that the data in the
+histogram corresponds to the two most intense XR kbeta3 radiation decay levels
+found in Dataset 3 for Co60 to Ni60: 1173.228 (3) & 1332.492 (4) keV. However,
+these lines are both still above 1 MeV.
+
+Setting the x-range to go from 0 to 1 MeV reveals two new prominent lines around
+350 and 820 keV. These lines correspond to the 3rd and 4th intense lines of the
+XR kbeta 3 radiation. Changing the x-range and trying to find the other
+lines yields no results for XR 1, kalpha2 or kbeta1 radiation.
+
+Therefore, I conclude that his histogram is filled only with entries of XR
+kbeta3 in the range of about 347.14 to 1332.492 keV (with some deviations).
+
+
+### Use the Fitpanel (go to “Tools”->“Fit Panel”) to fit the life time of Co60.
+How does this compare the half-life? ###
+
+Fitting an exponential line to the total time of life of decay chain histogram
+gives a nicely fitted line through the data poitns. Changing the x-range
+I can give an estimation for the half-life time. The half life, as I can tell
+from the fit, is in fact around the 5 year mark.
+
+Half life, use the slope! there is a formula with the natural logarithm
