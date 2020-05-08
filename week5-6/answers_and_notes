@@ -1,0 +1,25 @@
+### Assignment 2 ###
+# What is the default particle and energy?
+The default particle is one e- (G4Electron::Definition()).
+The partile has an energy of 30MeV (30.0*CLHEP::MeV).
+It has the default direction of 1.0, 0.0, 0.0.
+
+Thread-local: read and written only by the same thread.
+
+
+### Assignment 3 ###
+Choose a physics list, based on kind of applications; BERT FTFP, etc.
+
+Lookup tables, how do they work?
+https://indico.cern.ch/event/776050/contributions/3241826/attachments/1789270/2914266/ChoosingPhysLists.pdf
+the example uses test37
+
+Open test37 with Stat Comparison simply shows the graph of the test. How
+do you compare this?
+
+
+### Assignment 4 ###
+Scoring:
+    - use built-in commands: preferred, for all common physics quantities
+    - user scorers in tracking volume: create scores for each event, create own Run class
+    - use G4SensitiveDetector: use user hooks
